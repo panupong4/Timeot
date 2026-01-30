@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>บันทึกเวลางาน</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="WorkTime">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h1>🕒 บันทึกเวลางาน</h1>
+
+  <!-- ตัวกรอง -->
+  <div class="filter">
+    <select id="filterPerson">
+      <option value="all">📋 ทั้งหมด</option>
+      <option value="ฉัน">👤 ฉัน</option>
+      <option value="แฟน">👤 แฟน</option>
+    </select>
+    <input type="date" id="filterDate">
+  </div>
+
+  <!-- ฟอร์ม -->
+  <div class="form">
+    <label>👤 ผู้ทำงาน</label>
+    <select id="person">
+      <option value="ฉัน">ฉัน</option>
+      <option value="แฟน">แฟน</option>
+    </select>
+
+    <label>📅 วันที่</label>
+    <input type="date" id="date">
+
+    <label>⏰ กะการทำงาน</label>
+    <select id="shift">
+      <option value="07:00-15:00">☀️ 07:00 - 15:00</option>
+      <option value="07:00-19:00">🌤 07:00 - 19:00</option>
+      <option value="15:00-23:00">🌆 15:00 - 23:00</option>
+      <option value="19:00-07:00">🌙 19:00 - 07:00</option>
+      <option value="23:00-07:00">🌌 23:00 - 07:00</option>
+      <option value="custom">⌛ กำหนดเอง</option>
+    </select>
+
+    <div class="time custom hidden">
+      <input type="time" id="timeIn">
+      <input type="time" id="timeOut">
+    </div>
+
+    <label>💰 OT</label>
+    <div class="ot">
+      <select id="otRate">
+        <option value="0">ไม่ทำ OT</option>
+        <option value="1.5">OT 1.5</option>
+        <option value="2">OT 2</option>
+        <option value="3">OT 3</option>
+      </select>
+      <input type="number" id="otHour" step="0.5" placeholder="ชั่วโมง OT">
+    </div>
+
+    <button id="save" type="button">💾 บันทึก</button>
+  </div>
+
+  <!-- ตาราง -->
+  <table>
+    <thead>
+      <tr>
+        <th>👤</th>
+        <th>📅</th>
+        <th>⏰</th>
+        <th>💰 OT</th>
+        <th>⚙️</th>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>     
